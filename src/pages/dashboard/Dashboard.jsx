@@ -18,8 +18,6 @@ export default function Dashboard() {
 
   const { getAllUsers, getAllProject, error, isLoading } = useGetAllUsers();
   const { user } = useAuthContext();
-  // console.log(user);
-  // console.log(projects);
 
   useEffect(() => {
     const socketConnection = io("https://projects.adaptable.app");
@@ -39,6 +37,8 @@ export default function Dashboard() {
       socket.emit("set user online", user.userId);
 
       socket.on("remove deleted project", (projectId) => {
+        console.log("remove project is running");
+        console.log(projectId);
         setProjects((prevProjects) =>
           prevProjects.filter((project) => project._id !== projectId)
         );

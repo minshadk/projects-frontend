@@ -12,7 +12,7 @@ const { io } = require("socket.io-client");
 export default function Project() {
   const { projectId } = useParams();
   const [socket, setSocket] = useState(null);
-  const { getAllUsers, getProject, error, isLoading } = useGetAllUsers();
+  const {  getProject, error, isLoading } = useGetAllUsers();
   const { user } = useAuthContext();
 
   const [project, setProject] = useState([]);

@@ -22,12 +22,13 @@ export default function OnlineUsers() {
   useEffect(() => {
     if (socket) {
       socket.on("connect", () => {
-        // console.log(socket.id);
+        console.log(socket.id);
       });
 
       socket.emit("set user online", user.userId);
 
       socket.on("users", (onlineUsers) => {
+        console.log(onlineUsers);
         setUsers(onlineUsers);
       });
     }
